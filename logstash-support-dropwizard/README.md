@@ -1,4 +1,6 @@
-# Overview
+# logstash-support-dropwizard
+
+[ ![Download](https://api.bintray.com/packages/commercehub-oss/main/logstash-support-dropwizard/images/download.svg) ](https://bintray.com/commercehub-oss/main/logstash-support-dropwizard/_latestVersion)
 
 A library that supports sending logging events from Dropwizard applications to Redis for use with logstash. Logging
 events are sent to Redis with a specific (JSON) format. While these libraries don't concern themselves with what happens
@@ -8,7 +10,7 @@ and Kibana is used to view the events stored in Elasticsearch.
 # Usage
 
 First, add a dependency to your build file.  Releases are published to
-[Bintray JCenter](https://bintray.com/bintray/jcenter).  See the [changelog](../CHANGES.md) for the latest version.
+[Bintray JCenter](https://bintray.com/bintray/jcenter).
 
 Gradle:
 
