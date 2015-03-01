@@ -13,6 +13,10 @@ First, add a dependency to your build file.  Releases are published to
 Gradle:
 
 ```groovy
+repositories {
+    jcenter()
+}
+
 dependencies {
     compile "com.commercehub:logstash-support-dropwizard:1.0.0"
 }
