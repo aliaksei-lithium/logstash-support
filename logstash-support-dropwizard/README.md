@@ -1,9 +1,4 @@
-To make the `LogstashAppenderFactory` available for use in your application's configuration file, add the following to
-`META-INF/services/io.dropwizard.logging.AppenderFactory` in your project:
-
-    com.commercehub.dropwizard.logging.LogstashAppenderFactory
-
-Then, add the appender to your YAML configuration file. For example:
+Add an appender of type `logstash` to your configuration file. For example:
 
     logging:
       appenders:
@@ -21,6 +16,4 @@ Then, add the appender to your YAML configuration file. For example:
             blockWhenExhausted: false
           layout:
             userFields: "env:prod,app:foo"
-
-That's it!
 
