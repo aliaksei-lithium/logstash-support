@@ -1,0 +1,1 @@
+include "logstash-support-log4j", "logstash-support-logback", "logstash-support-dropwizard"

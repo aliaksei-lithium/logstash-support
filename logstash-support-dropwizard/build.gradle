@@ -1,0 +1,18 @@
+apply plugin: "groovy"
+
+dependencies {
+    compile project(":logstash-support-logback")
+    compile "io.dropwizard:dropwizard-configuration:0.7.1"
+    compile "io.dropwizard:dropwizard-logging:0.7.1"
+
+    testCompile "org.spockframework:spock-core:0.7-groovy-2.0"
+    testRuntime "cglib:cglib-nodep:2.2.2"
+}
+
+bintray {
+    pkg {
+        name = "logstash-support-dropwizard"
+        desc = "A library for sending a Dropwizard application's logging events to Redis for use with logstash."
+        labels = ["logstash", "dropwizard", "redis"]
+    }
+}

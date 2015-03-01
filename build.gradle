@@ -1,0 +1,83 @@
+buildscript {
+    repositories {
+        jcenter()
+    }
+    dependencies {
+        classpath "net.researchgate:gradle-release:2.0.2"
+        classpath "com.jfrog.bintray.gradle:gradle-bintray-plugin:1.1"
+    }
+}
+
+apply plugin: "net.researchgate.release"
+
+subprojects {
+    repositories {
+        jcenter()
+    }
+
+    apply plugin: "java"
+    apply plugin: "maven"
+    apply plugin: "maven-publish"
+
+    sourceCompatibility = "1.7"
+
+    task sourcesJar(type: Jar, dependsOn: classes) {
+        from sourceSets.main.allSource
+        classifier "sources"
+        extension "jar"
+    }
+
+    task javadocJar(type: Jar, dependsOn: javadoc) {
+        from javadoc.destinationDir
+        classifier "javadoc"
+        extension "jar"
+    }
+
+    group = "com.commercehub"
+
+    publishing {
+        publications {
+            mavenJava(MavenPublication) {
+                from components.java
+
+                artifact sourcesJar {
+                    classifier "sources"
+                }
+
+                artifact javadocJar {
+                    classifier "javadoc"
+                }
+
+                pom.withXml {
+                    asNode().dependencies.'*'.findAll() {
+                        it.scope.text() == 'runtime' && project.configurations.compile.allDependencies.find { dep ->
+                            dep.name == it.artifactId.text()
+                        }
+                    }.each() {
+                        it.scope*.value = 'compile'
+                    }
+                }
+            }
+        }
+    }
+
+    apply plugin: "com.jfrog.bintray"
+
+    bintray {
+        user = project.hasProperty("bintrayUserName") ? bintrayUserName : null
+        key = project.hasProperty("bintrayApiKey") ? bintrayApiKey : null
+        publications = ["mavenJava"]
+        pkg {
+            repo = "main"
+            userOrg = "commercehub-oss"
+            websiteUrl = "https://github.com/commercehub-oss/logstash-support"
+            issueTrackerUrl = "https://github.com/commercehub-oss/logstash-support/issues"
+            vcsUrl = "https://github.com/commercehub-oss/logstash-support.git"
+            licenses = ['Apache-2.0']
+        }
+    }
+
+    bintrayUpload.dependsOn build, sourcesJar, javadocJar
+
+    createReleaseTag.dependsOn bintrayUpload
+}

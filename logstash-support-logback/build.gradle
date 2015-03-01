@@ -1,0 +1,19 @@
+apply plugin: "groovy"
+
+dependencies {
+    compile "ch.qos.logback:logback-classic:1.1.2"
+    compile "net.minidev:json-smart:2.1.1"
+    compile "redis.clients:jedis:2.6.2"
+
+    testCompile "junit:junit:4.11"
+    testCompile "org.spockframework:spock-core:0.7-groovy-2.0"
+    testCompile "com.orange.redis-embedded:embedded-redis:0.5"
+}
+
+bintray {
+    pkg {
+        name = "logstash-support-logback"
+        desc = "A library for sending logback logging events to Redis for use with logstash."
+        labels = ["logstash", "logback", "slf4j", "redis"]
+    }
+}
