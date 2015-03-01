@@ -13,23 +13,34 @@ First, add a dependency to your build file.  Releases are published to
 Gradle:
 
 ```groovy
+...
 repositories {
     jcenter()
 }
-
+...
 dependencies {
     compile "com.commercehub:logstash-support-dropwizard:1.0.0"
 }
+...
 ```
 
 Maven:
 
 ```xml
+...
+<repositories>
+  <repository>
+    <id>jcenter</id>
+    <url>http://jcenter.bintray.com</url>
+  </repository>
+</repositories>
+...
 <dependency>
   <groupId>com.commercehub</groupId>
   <artifactId>logstash-support-dropwizard</artifactId>
   <version>1.0.0</version>
 </dependency>
+...
 ```
 
 If you're using the [Gradle Shadow Plugin](https://github.com/johnrengelman/shadow) or the
