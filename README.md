@@ -13,7 +13,7 @@ See the README of each library for its usage instructions.
 
 ## Releasing
 Releases are uploaded to [Bintray](https://bintray.com/) via the
-[gradle-release](https://github.com/townsfolk/gradle-release) plugin and
+[gradle-release](https://github.com/researchgate/gradle-release) plugin and
 [gradle-bintray-plugin](https://github.com/bintray/gradle-bintray-plugin). To upload a new release, you need to be a
 member of the [commercehub-oss Bintray organization](https://bintray.com/commercehub-oss). You need to specify your
 Bintray username and API key when uploading. Your API key can be found on your
