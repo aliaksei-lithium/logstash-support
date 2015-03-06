@@ -1,4 +1,6 @@
-# Overview
+# logstash-support
+
+[![Build Status](https://travis-ci.org/commercehub-oss/logstash-support.svg?branch=master)](https://travis-ci.org/commercehub-oss/logstash-support)
 
 An opinionated collection of libraries that support sending logging events to Redis from JVM applications for use with
 logstash. Logging events are sent to Redis with a specific (JSON) format. While these libraries don't concern
