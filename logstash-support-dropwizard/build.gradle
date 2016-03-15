@@ -2,8 +2,8 @@ apply plugin: "groovy"
 
 dependencies {
     compile project(":logstash-support-logback")
-    compile "io.dropwizard:dropwizard-configuration:0.7.1"
-    compile "io.dropwizard:dropwizard-logging:0.7.1"
+    compile "io.dropwizard:dropwizard-configuration:0.9.2"
+    compile "io.dropwizard:dropwizard-logging:0.9.2"
 
     testCompile "org.spockframework:spock-core:0.7-groovy-2.0"
     testRuntime "cglib:cglib-nodep:2.2.2"
