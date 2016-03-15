@@ -21,7 +21,7 @@ repositories {
 }
 ...
 dependencies {
-    compile "com.commercehub:logstash-support-dropwizard:1.0.0"
+    compile "com.commercehub:logstash-support-dropwizard:2.0.0"
 }
 ...
 ```
@@ -40,7 +40,7 @@ Maven:
 <dependency>
   <groupId>com.commercehub</groupId>
   <artifactId>logstash-support-dropwizard</artifactId>
-  <version>1.0.0</version>
+  <version>2.0.0</version>
 </dependency>
 ...
 ```
