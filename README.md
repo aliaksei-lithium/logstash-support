@@ -1,3 +1,8 @@
+# THIS PROJECT IS DEPRECATED
+logstash-support is no longer maintained, and this repository will be removed from GitHub on or after Saturday,
+January 14, 2017. Published release artifacts will continue to be available indefinitely via
+[Bintray JCenter](https://bintray.com/bintray/jcenter?filterByPkgName=logstash-support).
+
 # logstash-support
 
 [![Build Status](https://travis-ci.org/commercehub-oss/logstash-support.svg?branch=master)](https://travis-ci.org/commercehub-oss/logstash-support)
