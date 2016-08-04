@@ -58,7 +58,7 @@ class LogstashAppenderFactorySpecification extends Specification {
             appenderFactory.pool = jedisPoolConfigFactory
             appenderFactory.layout = logstashEventLayoutFactory
 
-            def appender = appenderFactory.build(rootLogger.loggerContext, null, null)
+            def appender = appenderFactory.build(rootLogger.loggerContext, null, null, null, null)
 
             AsyncAppender asyncAppender = null
             RedisAppender redisAppender = null

@@ -29,6 +29,9 @@ import com.commercehub.logging.logback.redis.RedisAppender;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import io.dropwizard.logging.AppenderFactory;
+import io.dropwizard.logging.async.AsyncAppenderFactory;
+import io.dropwizard.logging.filter.LevelFilterFactory;
+import io.dropwizard.logging.layout.LayoutFactory;
 import io.dropwizard.util.Duration;
 import org.hibernate.validator.constraints.NotBlank;
 
@@ -81,8 +84,12 @@ public class LogstashAppenderFactory implements AppenderFactory {
     @NotNull
     private LogstashEventLayoutFactory layout = new LogstashEventLayoutFactory();
 
+
     @Override
-    public Appender<ILoggingEvent> build(LoggerContext context, String applicationName, Layout<ILoggingEvent> layout) {
+    public Appender build(LoggerContext context, String applicationName,
+                          LayoutFactory layoutFactory, LevelFilterFactory levelFilterFactory,
+                          AsyncAppenderFactory asyncAppenderFactory) {
+
         RedisAppender appender = new RedisAppender();
         appender.setContext(context);
         appender.setName(REDIS_APPENDER_NAME);
@@ -93,7 +100,7 @@ public class LogstashAppenderFactory implements AppenderFactory {
         appender.setPassword(password);
         appender.setDatabase(database);
         appender.setKey(key);
-        appender.setLayout(layout != null ? layout : this.layout.build());
+        appender.setLayout(this.layout.build());
         addThresholdFilter(appender);
         appender.start();
         return wrapAsync(context, appender);
